@@ -1,0 +1,34 @@
+<div id="mainHeader">
+<% if (locals.user) { %>
+      <% if (locals.user.isAdmin) { %>
+    <div id="adminHeader">
+        
+        <h3 class="userName"><%=user.name%></h3>
+        <span class="headerSpan"><a href="/home">Home</a></span>
+        <span class="headerSpan"><a href="/update">Profile</a></span>
+        <span class="headerSpan"><a href="/admin/addEmployee">Add Employee</a></span>
+        <span class="headerSpan"><a href="/admin/viewEmployees">View Employees</a></span>
+        <span class="headerSpan"><a href="/admin/admin-page">Admin Page</a></span>
+        <span class="headerSpan"><a href="/review/newReviews/<%= user.id %>">Reviews</a></span>
+        <span class="headerSpan"><a href="/signOut">SignOut</a>
+
+
+    </div>
+        <% }else{ %>
+            <div id="employeeHeader">
+                <h3 class="userName"><%=user.name%></h3>
+                <span class="headerSpan"><a href="/home">Home</a></span>
+                <span class="headerSpan"><a href="/review/newReviews/<%= user.id%>">Reviews</a></span>
+                <span class="headerSpan"><a href="/signOut">SignOut</a></span>
+            </div>     
+
+       <%}%>
+      <% } else { %>
+                <div id="userHeader"> 
+                    <span class="headerSpan"><a href="/">SignIn</a></span>
+                    <span class="headerSpan"><a href="/signUp">SignUp</a></span>
+               </div>
+<% } %>
+
+</div>
+

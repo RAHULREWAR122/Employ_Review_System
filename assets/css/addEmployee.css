@@ -1,0 +1,63 @@
+#employeeH1{
+
+    /* background: #000; */
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#employeeH1>h1{
+      text-align: center;
+      background: #7e7171;
+      width: 30%;
+      padding: 10px;
+      margin-top: 10px;
+}
+
+#addEmployeeForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 300px; */
+   margin-top: 30px;
+       
+}
+#addEmployeeForm>form{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    height: 400px;
+    background: url('https://images.unsplash.com/photo-1526925539332-aa3b66e35444?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRldmVsb3BlcnxlbnwwfHwwfHx8MA%3D%3D') center no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+#addEmployeeForm>form>input{
+
+    width: 90%;
+    margin-top: 16px;
+    height: 35px;
+    border: 2px solid rgb(75, 165, 42);
+    outline: none;
+    background-color:transparent;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.3rem;
+    transition: all .2s;
+}   
+#addEmployeeForm>form>input:hover{
+
+    background: #bfdf8f4d;
+
+
+}
+#color{
+    transition: all .2s;
+}
+#color:hover{
+    cursor: pointer;
+    color: rgb(105, 189, 189);
+    background:#294343e1 ;
+}

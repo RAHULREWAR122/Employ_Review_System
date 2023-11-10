@@ -1,0 +1,60 @@
+  *{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    color: aqua;
+    transition: all .3s;
+}
+.headerSpan{
+   
+    padding: 5px;
+    transition: all .3s;
+    border-radius: 6px;
+}
+.headerSpan:hover{
+    background: #629e59;
+
+}
+
+
+a:hover{
+
+    color: rgba(127, 255, 212, 0.603);
+}
+li{
+    list-style: none;
+}
+.userName{
+    color: aliceblue;
+    font-size: 1.5rem;
+}
+#adminHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #353639;
+    padding: 9px;
+
+}
+#employeeHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #353639;
+    padding: 9px;
+}
+#userHeader{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #353639;
+    padding: 9px;
+}
+
+
+

@@ -1,0 +1,27 @@
+#signUpPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+#signUpPage>form{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+    height: 430px;
+    width: 40%;
+    background-color: darkgray;
+    border: 1px solid green;
+}
+#signUpPage>form>input{
+
+    height: 40px;
+    margin-top: 10px;
+    width: 90%;
+    border: none;
+    outline: none;
+
+}    

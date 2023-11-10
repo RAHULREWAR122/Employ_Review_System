@@ -1,0 +1,47 @@
+<!-- <h2 style="text-align: center;">Set Reviewers</h2> -->
+          
+<div id="reviews">
+            <div id="review">
+            <form method="POST" action="/admin/set-Reviewers">
+                <div id="review1">
+                    <div id="left">
+                    <h3 style="color: white; margin-bottom: 10px;">Recipient</h3>
+                    <select class="select" name="Recipient">
+                        <option selected disabled>Select Recipient</option>
+                            <% for(let i=0; i < employeeList.length; i++){ %>
+                                <option value="<%= employeeList[i].id  %>">
+                                <%= employeeList[i].name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+
+                <div id="right">
+                    <h3 style="color: white; margin-bottom: 10px;">Reviewer</h3>
+                    <select class="select" name="Reviewer">
+                         <option selected disabled>Select Reviewer</option>
+                              <% for(let i = 0; i < employeeList.length; i++){ %>
+                            <option value="<%= employeeList[i].id %>">
+                                <%= employeeList[i].name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+
+                </div>  
+               <div id="submit-btn">
+                <input id="submit" type="submit" value="Submit">
+            </div>
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+

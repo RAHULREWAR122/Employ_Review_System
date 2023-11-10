@@ -1,0 +1,44 @@
+
+<h2 style="text-align: center; color: rgb(131, 233, 131); font-size: 2rem; margin-top: 10px;">
+    <i class="fa-solid fa-users"></i> All Employees
+</h2>
+
+<table id="employeeTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Is Admin</th>
+            <% if (user.isAdmin) { %>
+                <th>Actions</th>
+            <% } %>
+        </tr>
+    </thead>
+    <tbody>
+        <% employees.forEach(function(employee) { %>
+            <tr>
+                <td><%= employee.name %></td>
+                <td><%= employee.email %></td>
+                <% if (user.isAdmin) { %>
+                <td><%= employee.password %></td>
+                <%}%>
+                <td style="color: aqua;"><%= employee.isAdmin %></td>
+                <% if (user.isAdmin) { %>
+                    <td class="action-buttons">
+                        <form method="POST" action="/admin/makeAdmin" style="display: inline-block;">
+                            <input type="hidden" name="newAdmin" value="<%= employee._id %>">
+                            <button type="submit" class="make-admin-button">Make Admin</button>
+                        </form>
+                        <form method="POST" action="/admin/makeEmployee" style="display: inline-block;">
+                            <input type="hidden" name="demoteAdmin" value="<%= employee._id %>">
+                            <button type="submit" class="demote-button">Demote to Employee</button>
+                        </form>
+                        <a href="/admin/deleteEmployee/<%= employee._id %>" class="delete-button">Delete</a>
+              
+                    </td>
+                <% } %>
+            </tr>
+        <% }); %>
+    </tbody>
+</table>

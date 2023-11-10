@@ -1,0 +1,25 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "My ERS Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Rahul Rewar",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^3.2.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mongo-store": "^0.0.2",
+    "mongoose": "^6.10.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
+  }
+}

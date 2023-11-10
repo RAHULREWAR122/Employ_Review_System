@@ -1,0 +1,29 @@
+body{
+    background: #546576;
+    color: red;
+}
+#homePage{
+
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+     
+}
+#homePageH1{
+      height: 100%;   
+      background: url('https://media.istockphoto.com/id/1718849437/photo/business-man-hand-working-on-mobile-smart-phone-with-virtual-diagram-on-dark-screen-with.webp?b=1&s=170667a&w=0&k=20&c=NMMKb_Aom45t0SjeIPmFDRXLpQl6guMN5-54165PsFo=') center no-repeat;
+      background-size: cover;
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      
+}
+marquee{
+
+    text-align: center;
+    height: 50%;
+}

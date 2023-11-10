@@ -1,0 +1,12 @@
+
+<h1>
+    Update
+</h1>
+
+<form id="updateForm" action="/updateUser/<%= user_update._id %>" method="POST">
+    <input type="text" name="name" value="<%= user_update.name %>" placeholder="Name" class="formInput">
+    <input type="email" name="email" value="<%= user_update.email %>" placeholder="Email" class="formInput">
+    <input type="text" name="adminId" value="<%= user_update.adminId %>" placeholder="Admin ID" class="formInput">
+    <input type="text" name="password" value="<%= user_update.password %>" placeholder="Password" class="formInput">
+    <input type="submit" value="Update" id="submitBtn">
+</form>

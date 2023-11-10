@@ -1,0 +1,43 @@
+#updateForm {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #000;
+    padding: 10px;
+}
+#updateForm>input{
+    outline: none;
+    border: none;
+}
+
+.formInput {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#submitBtn {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    outline: none;
+   
+}
+#submitBtn:hover {
+    color: aqua;
+ background: #a38d97;
+
+}
+
+h1 {
+    text-align: center;
+    color: rgb(131, 233, 131);
+    font-size: 2rem;
+    margin-top: 20px;
+}

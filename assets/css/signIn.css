@@ -1,0 +1,59 @@
+#signInForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+#signIn{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    background: #546787;
+}
+#signIn>input{
+    width: 90%;
+    margin-top: 15px;
+    height: 40px;
+    outline: none;
+    border: none;
+  
+}
+#signIn>input:hover{
+    background: #4c4242;
+   
+}
+#inp:hover{
+    cursor: pointer;
+}
+#inp:active{
+    cursor: progress;
+}
+
+#forgotPasswordDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-top: 10px;
+    height: 40px;
+    background: #ffffff;
+    transition: all .2s;
+
+}
+
+#forgotPasswordDiv:hover{
+    background: #4c4242;
+   
+}
+#forgotPassword{
+    
+    outline: none;
+    border: none;
+    color: black;
+    font-family: none;
+    font-size: 1rem;
+}

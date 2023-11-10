@@ -1,0 +1,42 @@
+<div id="container">
+        <div class="all">
+          <h2 >Recipients</h2>
+            <% if (recipients.length > 0) { %>
+          <% for (let j = 0; j < recipients.length; j++) { %>
+                <% if (recipients[j] !== null) { %>
+                 <div id="mainf">
+                 <h2>To: <%= recipients[j].name %></h2>
+                 <div class="mainForms"> 
+                 <form class="From" action="/review/newReview/<%=recipients[j]._id %>"method="get">
+                    <textarea  placeholder="Leave a review here" name="newReview" ></textarea>
+                    <button type="submit">Submit</button>
+                    </form>
+                </div>
+                </div> 
+              <% }%>
+              
+             <%}%>   
+             <%}else{%>
+              
+              <h3 style="color: chartreuse;">This time no Recipient Available .</h3>
+              
+              <%}%>
+            </div>
+
+           <div class="all">
+             <h2>Reviews</h2>
+              <% if (reviews.length > 0) { %>
+               <% reviews.forEach(function(review) { %>
+            <div class="showmsg">
+                <li>
+                <h3>From: <span><%= review.name %></span></h3>
+                <p>Message: <span><%= review.review %></span></p>
+            </li>
+        </div>
+        <% })%>
+        <% }else{ %>
+        <h3 style="color: chartreuse;">This time no reviews available .</h3>
+    <% } %>
+</div>
+
+</div>
