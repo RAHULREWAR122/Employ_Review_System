@@ -9,6 +9,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Password</th>
+            <th>Admin ID</th>
             <th>Is Admin</th>
             <% if (user.isAdmin) { %>
                 <th>Actions</th>
@@ -21,9 +22,13 @@
                 <td><%= employee.name %></td>
                 <td><%= employee.email %></td>
                 <% if (user.isAdmin) { %>
-                <td><%= employee.password %></td>
+                 
+                    <td><%= employee.password %></td>
+                    <td><%= employee.adminId %></td> 
+           
                 <%}%>
                 <td style="color: aqua;"><%= employee.isAdmin %></td>
+                
                 <% if (user.isAdmin) { %>
                     <td class="action-buttons">
                         <form method="POST" action="/admin/makeAdmin" style="display: inline-block;">

@@ -63,40 +63,40 @@ module.exports.addEmployee = async (req,res)=>{
 module.exports.addEmployees = async (req,res)=>{
     // check password and conform password is same or not 
     if(req.body.password !== req.body.conform_password){
-       req.flash('error' , "Password Dosen't Matches")
-       return res.redirect('back');
-
-    }
-    //  find user with email and Id No both because both are same we give Id No because if admin make any employee to admin then need for ID No becasue its unique for all adminers
-     User.findOne({email : req.body.email , adminId : req.body.adminId } , (err , user)=>{
-       if(err){
-           req.flash('error' , "Error in finding User")
-           return res.redirect('back');
-   
-       }
-    
-       if(!user){
-    // if user not found  then create 
-      
-        User.create({
-           name : req.body.name,
-           email : req.body.email,
-           password : req.body.password,
-           adminId : req.body.adminId,
-    //   here we put isAdmin false because when admin create employee then that time he/she  not admin 
-           isAdmin : false
-          
-       })
-      
-        req.flash('success' , `Employee ${req.body.name} Created Successfully`)
-       return res.redirect('/admin/viewEmployees');
-
-       }else{
-        
+        console.log("Check your information again");
         return res.redirect('back');
-
-       }
-     })
+    }
+    // now check user email already exists or not
+    User.findOne({ email : req.body.email , adminId : req.body.adminId} , (err , user)=>{
+        if(err){
+            console.log('Email or idNo use Already ,Try again something new');
+            req.flash('error', 'Email or idNo use Already ,Try again something new')
+            return res.redirect('back');
+        }
+    //   if user not found then we create user
+    if(!user){
+        User.create({
+            name : req.body.name,
+            email : req.body.email,
+            adminId : req.body.adminId,
+            password : req.body.password,
+            isAdmin : false
+        
+        } , (err , user)=>{
+            if(err){
+                console.log('error in creating user' , err.message);
+                req.flash('error', `Employee [ ${req.body.name}, Email :${req.body.email}, IDNo ${req.body.adminId} ] is Already Exist ,Try to make new Employees`)
+                return res.redirect('back');
+         }
+           
+           req.flash('success' , `${req.body.name} is created successfully by ${req.user.name}`)
+           return res.redirect('back');
+        })
+     }else{
+        console.log('error in creating user' , err.message);
+        return res.redirect('back');
+     }
+  })
 }
 
 
@@ -172,7 +172,7 @@ module.exports.newAdmin = async function(req, res) {
        
         await employee.save();
        
-        req.flash('success' , "Employee Successfully Converted to Admin");
+        req.flash('success' , `${employee.name} Successfully Converted to Admin`);
         return res.redirect('back');
     
     } catch (err) {
@@ -215,7 +215,7 @@ module.exports.newEmployee = async function(req, res) {
 
         // Demote the admin to a regular employee
         employee.isAdmin = false;
-        req.flash('success' , "Admin Successfully Converted to Employee")
+        req.flash('success' , `${employee.name} Successfully Converted to Employee`)
         await employee.save();
 
         return res.redirect('back');

@@ -23,10 +23,7 @@ const userSchema = new mongoose.Schema({
         type : Boolean ,
          
     },
-    secret:{
-        type :String ,
-    },
-
+   
       to : [    
         {
             type : mongoose.Schema.Types.ObjectId,

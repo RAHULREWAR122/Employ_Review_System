@@ -26,18 +26,20 @@ module.exports.goReview =async (req,res)=>{
         let reviews = [];
 
         for(let i = 0; i < review.length; i++){
-            let x = await User.findById(review[i].from);
+            let j = await User.findById(review[i].from);
             
 
             let curr_review = {
-                name : x.name,
+                name : j.name,
                 review : review[i].review,
                 updated : review[i].updatedAt,
             };
+
+            req.flash('success' ,'Review Pushed Successfully');
             reviews.push(curr_review);
         }
         return res.render('seeReview', {
-            title : "Reviews",
+            title : "reviews",
             recipients: recipients,
             reviews: reviews,
             user : user,

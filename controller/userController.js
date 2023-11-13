@@ -35,11 +35,12 @@ module.exports.secretKey =(req, res)=>{
 }
 
 
+// creating User
+module.exports.create =async (req,res)=>{
 
-module.exports.create = async (req,res)=>{
+    // first we check password and conform password same or not
     if(req.body.password !== req.body.conform_password){
-   
-        req.flash('error' , "chaeck your password Agein");
+        console.log("Check your information again");
         return res.redirect('back');
     }
     // now check user email already exists or not
@@ -49,8 +50,8 @@ module.exports.create = async (req,res)=>{
             req.flash('error', 'Email or idNo use Already ,Try again something new')
             return res.redirect('back');
 }
-   
-      if(!user){
+    //   if user not found then we create user
+    if(!user){
         User.create({
             name : req.body.name,
             email : req.body.email,
@@ -58,17 +59,29 @@ module.exports.create = async (req,res)=>{
             password : req.body.password,
             isAdmin : true
         
-        })
-            req.flash("success" , `Sign Up Successfully by : ${req.body.name}`);
-            return res.redirect('/');
-
-        }
-      
-      })
-
-
-
+        } ,(err , user)=>{
+            if(err){
+                console.log('error in creating user' , err.message);
+                req.flash('error', 'Employee Already Exist ,Try to sign-In')
+                return res.redirect('/');
+         }
+               req.flash("success" , `Sign Up Successfully by : ${req.body.name}`);
+                    return res.redirect('/');
+        
+    })
+     }else{
+        console.log('error in creating user' , err.message);
+        return res.redirect('back');
+     }
+  })
 }
+
+
+
+
+
+
+
 module.exports.createSession = async (req,res)=>{
     let userName = req.user.name ;
     req.flash("success" , `Welcom MR/MS : ${userName}`);

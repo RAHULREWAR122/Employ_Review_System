@@ -1,6 +1,6 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const port = process.env.PORT;
+const port = process.env.PORT || 2100;
 
 
 const app = express();
@@ -68,7 +68,6 @@ app.use(customMiddleware.setFlash);
 
 
 app.use('/' , require('./routes'))
-
 
 app.listen(port , (err)=>{
          if(err){
