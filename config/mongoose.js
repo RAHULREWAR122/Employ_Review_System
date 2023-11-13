@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 // connect with database
-mongoose.connect('mongodb://127.0.0.1/test_',{ useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.DB,{ useNewUrlParser: true, useUnifiedTopology: true });
 
+console.log(process.env.DB)
 const db =  mongoose.connection;
 // if in connect any error
 db.on('error' , console.error.bind('error inconnect db'));

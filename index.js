@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const port = process.env.PORT || 2100;
 
+require('dotenv').config();
 
 const app = express();
 const db = require('./config/mongoose');
@@ -31,8 +32,8 @@ app.set('layout extractScripts' , true)
 
 
 app.use(session({
-   name: 'ERS',
-   secret: 'RR',
+   name: process.env.NAME,
+   secret: process.env.SECRET,
    saveUninitialized: false,
    resave: false,
    cookie: {
